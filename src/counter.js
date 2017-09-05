@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Display from "./display.js";
+import Adder from "./adder.js"
 
 
 class Counter extends Component{
@@ -8,25 +10,23 @@ class Counter extends Component{
 			counter: 0
 		}
 	}
-
-
-	clickHandler(){
+	
+	incrementer = () => {
 		var counter = this.state.counter;
 		this.setState({counter : counter + 1})
+		
 	}
+
+
 
 	render(){
 
 
 	return(
-		<div onClick={this.clickHandler.bind(this)}>
-			
-			<button type="button">Add one</button>
-
-			<div>
-			{this.state.counter}
-				
-			</div>
+		
+		<div>
+			<Display number={this.state.counter} />
+			<Adder clickHandler={this.incrementer} />
 		</div>	
 		
 		)
